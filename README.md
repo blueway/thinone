@@ -15,6 +15,10 @@ npm install
 ```
 npm start
 ```
+production
+```
+node production.js
+```
 ## Access address
 - admin back end: http://127.0.0.1:8360/
 - mobile mui example : http://127.0.0.1:8360/static/mob/index.html

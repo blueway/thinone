@@ -9,6 +9,8 @@
     "lint": "tslint \"src/**/*.ts\""
   },
   "dependencies": {
+    "@types/ccap": "^0.6.0",
+    "ccap": "^0.6.10",
     "think-cache": "^1.0.7",
     "think-cache-file": "^1.0.8",
     "think-model": "^1.1.5",

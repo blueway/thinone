@@ -2,7 +2,7 @@
   "apps": [{
     "name": "thinone",
     "script": "production.js",
-    "cwd": "/home/jacky/Soft/programs/node/tsc/sailsjs/thinone",
+    "cwd": "/home/thinone",
     "exec_mode": "fork",
     "max_memory_restart": "1G",
     "autorestart": true,

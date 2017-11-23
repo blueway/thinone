@@ -80,7 +80,7 @@ $(function() {
     });
 });
 function changeCode(){
-    //$("#captcha_img").attr("src", "sys/login/getCaptcha?t="+ (new Date().getTime()));
+    $("#captcha_img").attr("src", "/index/captcha?t="+ (new Date().getTime()));
 }
 function choose_bg() {
     var bg = Math.floor(Math.random() * 9 + 1);
@@ -121,7 +121,7 @@ function choose_bg() {
                 <div class="input-group">
                     <span class="input-group-addon" id="sizing-addon-password"><span class="glyphicon glyphicon-exclamation-sign"></span></span>
                     <input type="text" class="form-control" id="j_captcha" name="captcha" placeholder="验证码" aria-describedby="sizing-addon-password">
-                    <span class="input-group-addon code" id="basic-addon-code"><img id="captcha_img" src="/static/images/captcha.jpg" alt="点击更换" title="点击更换" class="m"></span>
+                    <span class="input-group-addon code" id="basic-addon-code"><img   width="116" height="35" id="captcha_img" src="/static/images/captcha.jpg" alt="点击更换" title="点击更换" class="m"></span>
                 </div>
             </div>
             <div class="form-group">
