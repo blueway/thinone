@@ -73,9 +73,9 @@ $(function() {
         $("#j_password").val(password)
         */
         
-        //return true;
+        return true;
         
-        location.href = 'index.html'
+        //location.href = 'index.html'
         
     });
 });
@@ -100,11 +100,11 @@ function choose_bg() {
 <![endif]-->
 <div class="container">
     <div class="main_box">
-        <form action="index.html" id="login_form" method="post">
+        <form action="/user/doLogin" id="login_form" method="post">
             <input type="hidden" value="" id="j_randomKey" />
             <input type="hidden" name="jfinal_token" value="" />
             <p class="text-center logo"><img src="/static/images/logo.png" height="45"></p>
-            <div class="login_msg text-center"><font color="red"></font></div>
+            <div class="login_msg text-center"><font color="red">{{msg}}</font></div>
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon" id="sizing-addon-user"><span class="glyphicon glyphicon-user"></span></span>

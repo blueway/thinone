@@ -1,7 +1,9 @@
 import Base from './base.js';
 import ccap = require('ccap')
 export default class extends Base {
-   indexAction() {
+   async indexAction() {
+      const username = await this.session('userInfo');
+      this.assign({username: username})
       return this.display();
    }
    menuAction() {

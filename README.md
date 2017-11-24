@@ -37,5 +37,6 @@ pm2 startOrReload pm2.json
 - [ ] user model control
 - [ ] authority management
 - [ ] mobile ads content show
+- [ ] pc front end page
 - [ ] try to add mongodb 
 
