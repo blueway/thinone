@@ -78,6 +78,7 @@
         <div class="common-banner home-banner" id="home-page1">
             <ul>
                 <li data-transition="boxfade" data-slotamount="7" data-masterspeed="300" data-rotate="0" data-saveperformance="off" class="tp-revslider-slidesli">
+
                 </li>
             </ul>
         </div>
@@ -224,6 +225,31 @@
   </div>
 
 <!-- footer end -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script>
+
+ $(window).on("scroll",
+        function() {
+            var a = $(window).scrollTop(),
+            b = ($("body").height(), $(".back-top"));
+            a > 100 ? (b.fadeIn(), $(".back-top").css({
+                position: "fixed",
+                bottom: "10px",
+                backgroundColor: "#fff",
+                color: "#00c1de",
+                boxShadow: "0 6px 12px 0 rgba(0,0,0,.15)",
+                lineHeight: "44px"
+            })) : b.fadeOut()
+        }).trigger("scroll");
+
+  $(".back-top").on("click",
+        function() {
+            $("html,body").animate({
+                scrollTop: 0
+            },
+            500);
+        });
+</script>
 </body>
 </html>

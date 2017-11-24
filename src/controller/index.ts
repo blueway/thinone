@@ -10,7 +10,11 @@ export default class extends Base {
       let data = [
          {"name":"综合应用", "children":[
             {"id":"base-demo-form", "name":"表单示例", "target":"navtab", "url":"static/html/form/form.html"}
-         ]}
+         ]},
+         {"name":"系统管理", "children":[
+            {"id":"userindex", "name":"用户管理", "target":"navtab", "url":"user/index"}
+         ]
+         }
       ]
       this.ctx.json(data);
    }

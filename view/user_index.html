@@ -1,0 +1,25 @@
+<div class="bjui-pageContent" style="padding:5px">
+
+    <div style="float:left; display:block; overflow:auto; width:240px; height:100%; border:solid 1px #CCC; line-height:21px; background:#fff">
+        <ul id="tree" class="ztree" data-toggle="ztree"
+            data-options="{
+                onClick: 'onClick'
+            }"
+        >
+        </ul>
+    </div>
+
+    <div id="list"  style="margin-left:246px;height:100%;">
+        <!--#include virtual="codeList" -->
+    </div>
+
+
+</div>
+
+<SCRIPT type="text/javascript">
+    function onClick(event, treeId, treeNode){
+        //event.preventDefault();
+        $(this).bjuiajax('doLoad', {target:$("#list"), url:"" })
+
+    }
+</SCRIPT>

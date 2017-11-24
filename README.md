@@ -13,7 +13,8 @@ npm install
 ## Start server
 
 config myql
-> import  sql/thinone.sql
+> import  sql/thinone.sql  
+  login account:  admin test123
 
 ```
 npm start
@@ -41,5 +42,6 @@ pm2 startOrReload pm2.json
 - [ ] authority management
 - [ ] mobile ads content show
 - [ ] pc front end page
+- [ ] crud handler  modularization
 - [ ] try to add mongodb 
 
