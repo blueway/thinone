@@ -12,6 +12,9 @@ npm install
 
 ## Start server
 
+config myql
+> import  sql/thinone.sql
+
 ```
 npm start
 ```
@@ -33,7 +36,7 @@ pm2 startOrReload pm2.json
 
 
 ## TODO
-- [ ] user login action
+- [x] user login action
 - [ ] user model control
 - [ ] authority management
 - [ ] mobile ads content show
