@@ -1,12 +1,12 @@
 <table class="table table-bordered" data-toggle="datagrid" data-options="{
     height: '100%',
-    gridTitle : '用户管理',
+    gridTitle : '权限管理',
     showToolbar: true,
     toolbarItem: 'add,edit,|,del,|,cancel,save,|,refresh',
     local: 'remote',
-    dataUrl: '/user/list',
-    editUrl: '/user/update',
-    delUrl: '/user/del',
+    dataUrl: '/role/list',
+    editUrl: '/role/update',
+    delUrl: '/role/del',
     delPK:'id',
     paging: {pageSize:50, pageCurrent:1},
     linenumberAll: true,
@@ -18,9 +18,8 @@
 }">
     <thead>
         <tr>
-            <th data-options="{rule:'required;max(50)',name:'username',width:150}">用户名</th>
-            <th data-options="{type:'select',items:[{'1':'在职'},{'0':'离职'}],name:'status',align:'center',width:100}">状态</th>
-            <th data-options="{type:'select',items:function(){return $.getJSON('/role/list')},itemattr:{value:'id',label:'rolename'}, quickfilter:false,rule:'required;max(50)',name:'role',align:'center',width:150}">角色</th>
+            <th data-options="{rule:'required;max(50)',name:'rolename',width:150}">角色名称</th>
+            <th data-options="{quickfilter:false,width:200,name:'desc',align:'center',type:'textarea'}">描述</th>
             <th data-options="{width:200,name:'updated',align:'center',type:'date',pattern:'yyyy-MM-dd',add:false,edit:false}">操作时间</th>
             <th data-options="{render:datagrid_operation}">操作列</th>
         </tr>
@@ -30,9 +29,10 @@
 <script type="text/javascript">
 
 // 操作列
-function datagrid_operation() {
+function datagrid_operation(value,data) {
     var html = '<button type="button" class="btn-green" data-toggle="edit.datagrid.tr">编辑</button>'
         + '<button type="button" class="btn-red" data-toggle="del.datagrid.tr">删除</button>'
+        + '<button type="button"  data-icon="paypal" data-options="{mask:true, width:600, height:700 }" class="btn-orange" data-toggle="dialog"  data-url="/role/authList?roleid='+data.id+'">权限</button>';
     
     return html
 }

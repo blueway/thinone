@@ -9,7 +9,43 @@ function getMd5(inp:string):string{
 }
 export default class extends Base {
    indexAction() {
-      return this.display();
+      return this.display()
+   }
+   async   listAction() {
+      const users = this.model('user')
+      let ret = await this.listable(users) 
+      ret = ret.map((x:any) => {
+         x['role'] = x['role'][0].id
+         return x
+      })
+      return this.json(ret)
+   }
+   async   delAction() {
+      const users = this.model('user')
+      const user_roles = this.model('user_role')
+      return this.delrows(users,user_roles,'user_id')
+   }
+
+   async  updateAction() {
+      const users = this.model('user')
+      const user_roles = this.model('user_role')
+      let datas = JSON.parse(this.post('json').toString())
+      let handler = async (flag:boolean,one:object) => {
+         if(flag){ //add 
+            one['password']= getMd5('test123')
+            let ret = await users.add(one) 
+            ret = await user_roles.add({user_id:ret,role_id:one['role']}) 
+         }else{ //update
+            let ret = await users.where({id:one['id']}).update(one)
+            ret = await user_roles.where({user_id:one['id']}).update({role_id:one['role']})
+         }
+      }
+
+      for (let one of datas) {
+         const addFlag = one['addFlag']
+         handler(addFlag,one)
+      }
+      return this.json({statusCode:200,message:"成功"})
    }
    async   changepwdAction(){
       const users = this.model('user')
@@ -24,9 +60,9 @@ export default class extends Base {
       let password = this.post('password').toString()
       let data = await users.where({id:id}).update({password:getMd5(password)})
       if(!think.isEmpty(data)){
-         return this.json({statusCode:"200",message:"成功"})
+         return this.json({statusCode:200,message:"成功"})
       }
-      return this.json({statusCode:"201",message:"失败"})
+      return this.json({statusCode:300,message:"失败"})
    }
    async doLogoutAction(){
       this.session('userInfo',null)

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>管理后台</title>
-<meta name="Keywords" content="B-JUI,Bootstrap,jquery,ui,前端,框架,开源"/>
+<meta name="Keywords" content="Bootstrap,jquery,ui,前端,框架,开源"/>
+<meta name="Description" content="cms,admin"/>
 <!-- bootstrap - css -->
 <link href="static/bjui/themes/css/bootstrap.css" rel="stylesheet">
 <!-- core - css -->
@@ -72,8 +73,8 @@
 <script type="text/javascript">
 $(function() {
     BJUI.init({
-        JSPATH       : 'static/bjui/',         //[可选]框架路径
-        PLUGINPATH   : 'static/bjui/plugins/', //[可选]插件路径
+        JSPATH       : '/static/bjui/',         //[可选]框架路径
+        PLUGINPATH   : '/static/bjui/plugins/', //[可选]插件路径
         loginInfo    : {url:'login_timeout.html', title:'登录', width:440, height:240}, // 会话超时后弹出登录对话框
         statusCode   : {ok:200, error:300, timeout:301}, //[可选]
         ajaxTimeout  : 300000, //[可选]全局Ajax请求超时时间(毫秒)

@@ -1,0 +1,70 @@
+<div class="bjui-pageHeader">
+    <a class="btn btn-green" href="#" onclick="savePrivilege();"  data-icon="save"> 更新权限 </a>
+    <div class="pull-right">
+        <button type="button" class="btn-close " data-icon="close">关闭</button>
+    </div>
+</div>
+<script type="text/javascript">
+    function ztree_returnjson() {
+          return JSON.parse('{{treeList}}'.replace(/&quot;/g, '"'))
+    }
+</script>
+
+<div class="bjui-pageContent" style="padding:5px">
+
+    <div style="float:left; display:block; overflow:auto; width:100%; height:100%; border:solid 1px #CCC; line-height:21px; background:#fff">
+
+        <ul id="roleauthsTree" class="ztree" data-toggle="ztree"
+            data-options="{
+                checkEnable:true,
+                setting:{
+                    view: {
+                        fontCss: setFontCss
+                    }
+                },nodes:'ztree_returnjson'
+            }"
+        >
+        </ul>
+    </div>
+    <div class="unitBox" style="margin-left:246px;">
+
+        <ul id="rolepvTree" class="ztree"></ul>
+
+    </div>
+
+    <input type="hidden" id="roleid" value="{{roleid}}" />
+</div>
+
+
+<SCRIPT type="text/javascript">
+
+    function savePrivilege(){
+        var treeObj = $.fn.zTree.getZTreeObj("roleauthsTree");
+        var nodes = treeObj.getCheckedNodes(true);
+        var ids = "";
+        if(nodes.length >0){
+            $.each(nodes,function(i,n){
+                ids += n.id +",";
+            });
+            ids = ids.substr(0,ids.length -1);
+        }
+        $.ajax({
+            type: "POST",
+            url: "/role/doAuth",
+            data: "roleid="+$("#roleid").val()+"&ids="+ids,
+            async: false,
+            success: function (res) {
+                //var msg = $.parseJSON(res);
+                $(this).alertmsg('info',res.message);
+            }
+        });
+        return true;
+    }
+
+    function setFontCss(treeId, treeNode) {
+        var isMine = $('#isMine').val() ;
+        return treeNode.checked && isMine=='true' ? { color: "blue" } : {};
+    }
+
+</SCRIPT>
+

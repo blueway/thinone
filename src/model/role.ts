@@ -3,11 +3,11 @@ import { think } from 'thinkjs';
 export default class extends think.Model {
 get relation() {
     return {
-      role: {
+      auth: {
         field: 'id',
         type: think.Model.MANY_TO_MANY,
-        rModel: 'user_role',
-        rfKey: 'role_id'
+        rModel: 'role_auth',
+        rfKey: 'auth_id'
       }
     }
   }
