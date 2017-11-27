@@ -5,10 +5,9 @@ export default class extends think.Controller {
       const whitelist = ['/index/login','/index/captcha','/user/doLogin']
       let pathurl = this.ctx.path
       if(think.isEmpty(userInfo) && !whitelist.includes(pathurl) && !pathurl.startsWith('/static/')){
-         return this.redirect('/index/login');
+         return this.redirect('/index/login')
 
-      }else{
-
+      }else if(!think.isEmpty(userInfo)){
          const users= this.model('user')
          let roledatas = await users.where({username:userInfo}).find()
          let auths = roledatas.role[0].auth.filter( (x:any) =>pathurl.startsWith(x.url))
