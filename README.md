@@ -38,10 +38,10 @@ pm2 startOrReload pm2.json
 
 ## TODO
 - [x] user login action
-- [ ] user model control
-- [ ] authority management
+- [x] user model control
+- [x] authority management
 - [ ] mobile ads content show
-- [ ] pc front end page
+- [x] pc front end page
 - [ ] crud handler  modularization
 - [ ] try to add mongodb 
 

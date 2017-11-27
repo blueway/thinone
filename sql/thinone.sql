@@ -16,6 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `th_auth`
+--
+
+DROP TABLE IF EXISTS `th_auth`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `th_auth` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `url` varchar(50) NOT NULL,
+  `icon` varchar(20) DEFAULT NULL,
+  `order` int(2) NOT NULL DEFAULT '0',
+  `ishow` tinyint(4) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `th_auth`
+--
+
+LOCK TABLES `th_auth` WRITE;
+/*!40000 ALTER TABLE `th_auth` DISABLE KEYS */;
+INSERT INTO `th_auth` VALUES (1,0,'全部','/','',0,1),(3,4,'用户管理','/user/index','fa-text',0,1),(4,1,'系统管理','/index/sysmenu','fa-text',0,1),(5,4,'角色管理','/role/index','fa-text',1,1),(6,4,'权限菜单','/auth/index','fa-text',2,1),(7,6,'列表','/auth/list','fa-text',0,0),(8,6,'更新','/auth/update','fa-text',1,0),(11,6,'删除','/auth/del','fa-text',2,0),(12,5,'列表','/role/list','fa-text',0,0),(13,5,'更新','/role/update','fa-text',1,0),(14,5,'删除','/role/del','fa-text',2,0),(15,3,'列表','/user/list','fa-text',0,0),(16,3,'更新','/user/update','fa-text',1,0),(17,3,'删除','/user/del','fa-text',2,0),(18,5,'权限列表','/role/authList','fa-text',3,0),(19,5,'权限更新','/role/doAuth','fa-text',4,0);
+/*!40000 ALTER TABLE `th_auth` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `th_mob`
 --
 
@@ -40,6 +69,57 @@ INSERT INTO `th_mob` VALUES (1,'two'),(2,'one');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `th_role`
+--
+
+DROP TABLE IF EXISTS `th_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `th_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(50) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `desc` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `th_role`
+--
+
+LOCK TABLES `th_role` WRITE;
+/*!40000 ALTER TABLE `th_role` DISABLE KEYS */;
+INSERT INTO `th_role` VALUES (1,'超级','2017-11-26 13:42:14','什么'),(2,'普通','2017-11-26 13:42:26','一般');
+/*!40000 ALTER TABLE `th_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `th_role_auth`
+--
+
+DROP TABLE IF EXISTS `th_role_auth`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `th_role_auth` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) NOT NULL,
+  `auth_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `th_role_auth`
+--
+
+LOCK TABLES `th_role_auth` WRITE;
+/*!40000 ALTER TABLE `th_role_auth` DISABLE KEYS */;
+INSERT INTO `th_role_auth` VALUES (167,2,1),(168,2,4),(169,2,3),(170,2,15),(171,2,16),(172,1,1),(173,1,4),(174,1,3),(175,1,15),(176,1,16),(177,1,17),(178,1,5),(179,1,12),(180,1,13),(181,1,14),(182,1,18),(183,1,19),(184,1,6),(185,1,7),(186,1,8),(187,1,11);
+/*!40000 ALTER TABLE `th_role_auth` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `th_user`
 --
 
@@ -51,8 +131,9 @@ CREATE TABLE `th_user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(32) NOT NULL,
   `status` tinyint(2) NOT NULL DEFAULT '1',
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,8 +142,33 @@ CREATE TABLE `th_user` (
 
 LOCK TABLES `th_user` WRITE;
 /*!40000 ALTER TABLE `th_user` DISABLE KEYS */;
-INSERT INTO `th_user` VALUES (1,'admin','CC03E747A6AFBBCBF8BE7668ACFEBEE5',1);
+INSERT INTO `th_user` VALUES (40,'admin','CC03E747A6AFBBCBF8BE7668ACFEBEE5',1,'2017-11-26 10:16:57'),(44,'test','CC03E747A6AFBBCBF8BE7668ACFEBEE5',1,'2017-11-26 14:21:30');
 /*!40000 ALTER TABLE `th_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `th_user_role`
+--
+
+DROP TABLE IF EXISTS `th_user_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `th_user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `th_user_role`
+--
+
+LOCK TABLES `th_user_role` WRITE;
+/*!40000 ALTER TABLE `th_user_role` DISABLE KEYS */;
+INSERT INTO `th_user_role` VALUES (6,1,40),(10,2,44);
+/*!40000 ALTER TABLE `th_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -74,4 +180,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-24 13:47:25
+-- Dump completed on 2017-11-27 14:24:27

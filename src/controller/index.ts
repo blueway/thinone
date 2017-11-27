@@ -1,27 +1,27 @@
 import Base from './base.js';
 import ccap = require('ccap')
 function buildTree(inp:any[]):any[]{
-      let map = {},roots = []
-      let t = []
-      if(inp.length == 0) return inp
-      for(let i in inp){
-         let x= inp[i]
-         map[x.id] = i
-         x['target'] = 'navtab'
-         x['id'] = 't'+x.id
-         //x.children = []
-         t.push(x) 
+   let map = {},roots = []
+   let t = []
+   if(inp.length == 0) return inp
+   for(let i in inp){
+      let x= inp[i]
+      map[x.id] = i
+      x['target'] = 'navtab'
+      x['id'] = 't'+x.id
+      //x.children = []
+      t.push(x) 
+   }
+   for(let node of t){
+      if(node.pid > 1) {
+         let s = t[map[node.pid]]
+         if(!s.children)s.children = []
+         s.children.push(node)
+      }else{
+         roots.push(node)
       }
-      for(let node of t){
-         if(node.pid > 1) {
-            let s = t[map[node.pid]]
-            if(!s.children)s.children = []
-               s.children.push(node)
-         }else{
-            roots.push(node)
-         }
-      }
-      return roots
+   }
+   return roots
 }
 export default class extends Base {
    async indexAction() {
@@ -29,26 +29,16 @@ export default class extends Base {
       this.assign({username: username})
       return this.display();
    }
-  async  menuAction() {
-      let data = [
-         {"name":"综合应用", "children":[
-            {"id":"base-demo-form", "name":"表单示例", "target":"navtab", "url":"static/html/form/form.html"}
-         ]},
-         {"name":"系统管理", "children":[
-            {"id":"userindex", "name":"用户管理", "target":"navtab", "url":"user/index"},
-            {"id":"roleindex", "name":"角色管理", "target":"navtab", "url":"role/index"},
-            {"id":"authindex", "name":"权限菜单", "target":"navtab", "url":"auth/index"}
-         ]
-         }
-      ]
-      const mod= this.model('auth')
-      let menus = await mod.where({pid:['>',0]}).select()
+   async  sysmenuAction() {
+      const username = await this.session('userInfo');
+      const users = this.model('user')
+      let roledatas = await users.where({username:username}).find()
+      let menus = roledatas.role[0].auth.filter( (x:any) => x.pid > 0 && x.ishow == 1)
       menus = buildTree(menus)
-      console.log(menus)
       this.ctx.json(menus)
    }
 
-   
+
    loginAction(){
       return this.display();
    }

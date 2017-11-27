@@ -6,6 +6,14 @@ export default class extends think.Controller {
       let pathurl = this.ctx.path
       if(think.isEmpty(userInfo) && !whitelist.includes(pathurl) && !pathurl.startsWith('/static/')){
          return this.redirect('/index/login');
+
+      }else{
+
+         const users= this.model('user')
+         let roledatas = await users.where({username:userInfo}).find()
+         let auths = roledatas.role[0].auth.filter( (x:any) =>pathurl.startsWith(x.url))
+         if(think.isEmpty(auths))
+            return this.json({statusCode:300,message:'没有权限操作'})
       }
    }
    async listable(model:any){
