@@ -3,7 +3,9 @@
 一个使用thinkjs+typescript ,加上B-Jui后端ui框架，加上mui移动端框架的开发模板。
 
 ## Screenshots
-![图片](http://blueswu.gitee.io/myhome/thinonep1.png)
+![图片1](http://blueswu.gitee.io/myhome/thinoneimages/screenshot1.png)
+![图片2](http://blueswu.gitee.io/myhome/thinoneimages/screenshot2.png)
+![图片3](http://blueswu.gitee.io/myhome/thinoneimages/screenshot3.png)
 ## Install dependencies
 
 ```
@@ -43,5 +45,5 @@ pm2 startOrReload pm2.json
 - [ ] mobile ads content show
 - [x] pc front end page
 - [ ] crud handler  modularization
-- [ ] try to add mongodb 
+- [ ] try to add mongodb and redis cache
 
