@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>管理后台</title>
-<meta name="Keywords" content="Bootstrap,jquery,ui,前端,框架,开源"/>
+<meta name="Keywords" content="Bootstrap,Nodejs,框架,开源"/>
 <meta name="Description" content="cms,admin"/>
 <!-- bootstrap - css -->
 <link href="static/bjui/themes/css/bootstrap.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 <link href="static/bjui/themes/css/FA/css/font-awesome.min.css" rel="stylesheet">
 <!-- Favicons -->
 <link rel="apple-touch-icon-precomposed" href="static/assets/ico/apple-touch-icon-precomposed.png">
-<link rel="shortcut icon" href="static/assets/ico/favicon.png">
+<link rel="shortcut icon" href="/static/favicon.ico">
 <!--[if lte IE 7]>
 <link href="static/bjui/themes/css/ie7.css" rel="stylesheet">
 <![endif]-->
@@ -158,7 +158,6 @@ function bjui_index_exchange() {
                 <ul class="nav navbar-nav navbar-right">
                     <li class="datetime"><a><span id="bjui-date">0000/00/00</span> <span id="bjui-clock">00:00:00</span></a></li>
                     <li><a href="#">账号：{{username}}</a></li>
-                    <li><a href="#">角色：管理员</a></li>
                     <li><a href="/user/changepwd" data-toggle="dialog" data-id="sys_user_changepass" data-mask="true" data-width="400" data-height="300">修改密码</a></li>
                     <li><a href="/user/doLogout" style="font-weight:bold;">&nbsp;<i class="fa fa-power-off"></i> 注销登陆</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle bjui-fonts-tit" data-toggle="dropdown" title="更改字号"><i class="fa fa-font"></i> 大</a>
@@ -191,7 +190,7 @@ function bjui_index_exchange() {
                 <button type="button" class="navbar-toggle collapsed" id="bjui-navbar-collapsebtn" data-toggle="collapsenavbar" data-target="#bjui-navbar-collapse" aria-expanded="false">
                     <i class="fa fa-angle-double-right"></i>
                 </button>
-                <a class="navbar-brand" href="http://b-jui.com"><img src="static/images/logo.png" height="30"></a>
+                <a class="navbar-brand" href="javascript:void(0)" style="padding-left:15px"><img src="/static/images/logo.png" height="30"></a>
             </div>
             <nav class="collapse navbar-collapse" id="bjui-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right" id="bjui-hnav-navbar">
