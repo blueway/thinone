@@ -1,77 +1,187 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>有你所爱</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <head>
+      <meta charset="utf-8">
+      <title>有你所爱</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="/static/mob/css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="/static/mob/css/app.css" />
-	</head>
+      <link rel="shortcut icon" href="/static/favicon.ico">
+      <!--标准mui.css-->
+      <link rel="stylesheet" href="/static/mob/css/mui.min.css">
+      <!--App自定义的css-->
+      <link rel="stylesheet" type="text/css" href="/static/mob/css/app.css" />
+      <script src="/static/bjui/js/jquery-1.11.3.min.js"></script>
+      <style type="text/css">
+.mui-table-view .mui-media-object{
+   height: auto;
+   max-width: 180px;
+   line-height: 50px;
+}
+      </style>
+   </head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon  mui-pull-left"></a>
-			<h1 class="mui-title">有你所爱</h1>
-		</header>
-		<div class="mui-content">
-			<div class="mui-card">
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-						这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
-					</div>
-				</div>
-			</div>
-			<div class="mui-card">
-                           <div class="mui-card-header">{{title}}</div>
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-                                           {{content}}
-					</div>
-				</div>
-                                <div class="mui-card-footer">{{footer}}</div>
-			</div>
-			
-			<div class="mui-card">
-				<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(/static/mob/images/cbd.jpg)"></div>
-				<div class="mui-card-content">
-					<div class="mui-card-content-inner">
-						<p>Posted on January 18, 2016</p>
-						<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
-					</div>
-				</div>
-				<div class="mui-card-footer">
-					<a class="mui-card-link">Like</a>
-					<a class="mui-card-link">Read more</a>
-				</div>
-			</div>
-			
-			
-			<!--<div class="mui-card">
-				<div class="mui-card-header mui-card-media">
-					<div class="mui-card-media-object mui-pull-left">
-						<img src="../images/logo.png" width="34px" height="34px" />
-					</div>
-					<div class="mui-card-media-body">
-						小M
-						<p class="mui-ellipsis">发表于 6小时前</p>
-					</div>
-				</div>
-				<div class="mui-card-content mui-card-media" style="height:40vw;background-image:url(../images/yuantiao.jpg)"></div>
-				<div class="mui-card-footer">
-					<a class="mui-card-link">Like</a>
-					<a class="mui-card-link">Comment</a>
-					<a class="mui-card-link">Read more</a>
-				</div>
-			</div>-->
-			
+   <body>
+      <header class="mui-bar mui-bar-nav">
+         <a class="mui-action-back mui-icon  mui-pull-left"></a>
+         <h1 class="mui-title">有你所爱</h1>
+         <div id="slider" class="mui-slider mui-fullscreen">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+               <div class="mui-scroll">
+                  <a class="mui-control-item mui-active" href="#item1mobile">
+                     推荐
+                  </a>
+                  <a class="mui-control-item" href="#item2mobile">
+                     热点
+                  </a>
+                  <a class="mui-control-item" href="#item3mobile">
+                     北京
+                  </a>
+                  <a class="mui-control-item" href="#item4mobile">
+                     社会
+                  </a>
+                  <a class="mui-control-item" href="#item5mobile">
+                     娱乐
+                  </a>
+                  <a class="mui-control-item" href="#item6mobile">
+                     科技
+                  </a>
+               </div>
+            </div>
+      </header>
+      <div class="mui-content mui-scroll-wrapper" id="pullrefresh">
 
-		<script src="/static/mob/js/mui.min.js"></script>
-	</body>
+
+         <div class="mui-scroll">
+            <div id="tableview">
+               <div class="mui-card">
+                  <div class="mui-table-view">
+                     <li class="mui-table-view-cell mui-media">
+                        <a href="javascript:;">
+                           <img class="mui-media-object mui-pull-left" src="https://p1.pstatp.com/list/190x124/47110004df4d007a3154">
+                           <div class="mui-media-body">
+                              我的天，她怎么这么平，没料还敢在这舞台上这样穿，真是有勇气
+                              <p class='mui-ellipsis'>叮当音乐汇</p>
+                           </div>
+                        </a>
+                     </li>
+                  </div>
+               </div>
+               <div class="mui-card">
+                  <div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(/static/mob/images/cbd.jpg)"></div>
+                  <div class="mui-card-content">
+                     <div class="mui-card-content-inner">
+                        <p>Posted on January 18, 2016</p>
+                        <p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+                     </div>
+                  </div>
+                  <div class="mui-card-footer">
+                     <a class="mui-card-link">Like</a>
+                     <a class="mui-card-link">Read more</a>
+                  </div>
+               </div>
+
+               <!--<div class="mui-card">
+                  <div class="mui-card-header mui-card-media">
+                  <div class="mui-card-media-object mui-pull-left">
+                  <img src="../images/logo.png" width="34px" height="34px" />
+                  </div>
+                  <div class="mui-card-media-body">
+                  小M
+                  <p class="mui-ellipsis">发表于 6小时前</p>
+                  </div>
+                  </div>
+                  <div class="mui-card-content mui-card-media" style="height:40vw;background-image:url(../images/yuantiao.jpg)"></div>
+                  <div class="mui-card-footer">
+                  <a class="mui-card-link">Like</a>
+                  <a class="mui-card-link">Comment</a>
+                  <a class="mui-card-link">Read more</a>
+                  </div>
+                  </div>-->
+            </div>	
+         </div>	
+      </div>	
+      <script id="hidden-template" type="text/x-custom-template">
+               <div class="mui-card">
+                           <div class="mui-card-header">#title</div>
+                                <div class="mui-card-content">
+                                        <div class="mui-card-content-inner">
+                                           #content 
+                                        </div>
+                                </div>
+                                <div class="mui-card-footer">#footer</div>
+                </div>
+      </script>	
+      <script id="hidden-template2" type="text/x-custom-template">
+               <div class="mui-card">
+                           <div class="mui-table-view">
+                              <li class="mui-table-view-cell mui-media">
+                                 <a href="javascript:;">
+                                    <img class="mui-media-object mui-pull-left" src="#icon">
+                                    <div class="mui-media-body">
+                                       #content
+                                       <p class='mui-ellipsis'>#footer</p>
+                                    </div>
+                                 </a>
+                              </li>
+                           </div>
+                </div>
+      </script>	
+      <script src="/static/mob/js/mui.min.js"></script>
+      <script >
+mui.init({
+  pullRefresh : {
+    container:"#pullrefresh",
+   down: {
+      callback: pulldownRefresh,
+      contentnomore:'没有更新数据了'
+   },
+    up : {
+      height:50,//可选.默认50.触发上拉加载拖动距离
+      auto:false,//可选,默认false.自动上拉加载一次
+      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+      contentnomore:'我是有底线的',
+      callback :pullupRefresh
+    }
+  }
+});
+var news = 0,count = 0;
+function pulldownRefresh() {
+$.post('/mob/list',{page:news},function(ret){
+ setTimeout(function() {
+   var table = $('#tableview');
+   var template = $('#hidden-template2').html();
+   var datas = '';
+   ret.forEach(function(v){
+      datas += template.replace('#title',v.title).replace('#content',v.content).replace('#icon',v.icon).replace('#footer',v.footer);
+   });
+   if(ret.length >  0) $(datas).insertBefore(table);
+   news++;
+   mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+   }, 1500);
+
+ });
+
+}
+function pullupRefresh() {
+ $.post('/mob/list',{page:count},function(ret){
+ setTimeout(function() {
+   mui('#pullrefresh').pullRefresh().endPullupToRefresh(ret.length == 0); 
+   var template = $('#hidden-template2').html();
+   var datas = '';
+   ret.forEach(function(v){
+      datas += template.replace('#title',v.title).replace('#content',v.content).replace('#icon',v.icon).replace('#footer',v.footer);
+   });
+   var list = $('#tableview').append(datas);
+   count++;
+   }, 1500);
+
+ });
+}
+
+      </script>
+   </body>
 
 </html>

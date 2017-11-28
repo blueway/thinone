@@ -42,7 +42,8 @@ pm2 startOrReload pm2.json
 - [x] user login action
 - [x] user model control
 - [x] authority management
-- [ ] mobile ads content show
+- [x] mobile info flow content show
+- [ ] rest api jwt
 - [ ] charts and cron events handlers 
 - [x] pc front end page
 - [ ] crud handler  modularization

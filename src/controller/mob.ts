@@ -1,14 +1,27 @@
 import Base from './base.js';
 export default class extends Base {
    async indexAction() {
+        return this.display('mob/index')
+   }
+
+   async listAction() {
+      const page = this.post('page')
       const mobs = this.model('mob')
       const data = await mobs.select()
-      console.log(data)
-      this .assign({
-         title: '宋仲基为太太宋慧乔庆祝36岁生日', 
-         content: '宋慧乔与宋仲基度完新婚蜜月之后，日前回到了韩国，宋仲基婚后第一个工作，是到香港参加MAMA颁奖礼，担任主持人，换言之，11月的下半旬，双宋夫妇将继续休息，过他们的甜蜜新婚生活。',
+
+      let datas = [{
+         title: '没料在这舞台上这样穿，真是有勇气', 
+         icon:'https://p1.pstatp.com/list/190x124/47110004df4d007a3154',
+         content: '没料在这舞台上这样穿，真是有勇气',
          footer: '评论', 
-      })
-      return this.display('mob/index')
+      },
+      {
+         title: '微信12月1号收费，你会改用支付宝吗？', 
+         icon:'https://p3.pstatp.com/list/190x124/474f000841c6ef7ec10e',
+         content: '微信12月1号收费，你会改用支付宝吗？',
+         footer: '评论', 
+      }
+      ]
+      return this.json(page == 1 ? []:datas)
    }
 }
