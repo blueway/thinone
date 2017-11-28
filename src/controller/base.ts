@@ -3,8 +3,9 @@ export default class extends think.Controller {
    async  __before() {
       const userInfo = await this.session('userInfo');
       const whitelist = ['/index/login','/index/captcha','/user/doLogin']
+      const prefixs = ['/static/','/api/']
       let pathurl = this.ctx.path
-      if(think.isEmpty(userInfo) && !whitelist.includes(pathurl) && !pathurl.startsWith('/static/')){
+      if(think.isEmpty(userInfo) && !whitelist.includes(pathurl) && think.isEmpty(prefixs.filter( (x) => pathurl.startsWith(x)))){
          return this.redirect('/index/login')
 
       }else if(!think.isEmpty(userInfo)){

@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/ccap": "^0.6.0",
     "ccap": "^0.6.10",
+    "jsonwebtoken": "^8.1.0",
     "think-cache": "^1.0.7",
     "think-cache-file": "^1.0.8",
     "think-model": "^1.1.5",

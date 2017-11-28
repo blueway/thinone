@@ -29,6 +29,9 @@ node production.js
 - admin back end: http://127.0.0.1:8360/
 - mobile mui example : http://127.0.0.1:8360/static/mob/index.html
 - mobile front end : http://127.0.0.1:8360/mob/index
+- api jwt handler : http://127.0.0.1:8360/api/token
+* want to close  all tabs? : the right mouse button 
+
 ## Deploy with pm2
 
 Use pm2 to deploy app on production enviroment.
@@ -43,7 +46,7 @@ pm2 startOrReload pm2.json
 - [x] user model control
 - [x] authority management
 - [x] mobile info flow content show
-- [ ] rest api jwt
+- [x] rest api jwt
 - [ ] charts and cron events handlers 
 - [x] pc front end page
 - [ ] crud handler  modularization
