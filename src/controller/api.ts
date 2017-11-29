@@ -34,4 +34,10 @@ export default class extends Base {
       }, secret,{ expiresIn: '1h' })
       return this.json({code:200,msg:'ok',data:token})
    }
+
+   testAction() {
+    // 如果不是定时任务调用，则拒绝
+    if(!this.isCli) return this.fail(1000, 'deny')
+  }
+
 }

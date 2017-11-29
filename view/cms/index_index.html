@@ -1,0 +1,13 @@
+<div style="padding:5px;min-width:400px;height:350px" data-toggle="highcharts"  data-theme="blue" data-url="/cms/index/chart"></div>
+
+<script type="text/javascript">
+
+// 操作列
+function datagrid_operation(value,data) {
+    var html = '<button type="button" class="btn-green" data-toggle="edit.datagrid.tr">编辑</button>'
+        + '<button type="button" class="btn-red" data-toggle="del.datagrid.tr">删除</button>'
+        + '<button type="button"  data-icon="paypal" data-options="{mask:true, width:600, height:700 }" class="btn-orange" data-toggle="dialog"  data-url="/role/authList?roleid='+data.id+'">权限</button>';
+    
+    return html
+}
+</script>

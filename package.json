@@ -23,7 +23,7 @@
     "thinkjs": "^3.2.3"
   },
   "devDependencies": {
-    "typescript": "^2.6.1",
+    "typescript": "^2.6.2",
     "@types/koa": "*",
     "node-notifier": "^5.0.2",
     "think-watcher": "^3.0.0",

@@ -14,17 +14,21 @@ npm install
 
 ## Start server
 
-config mysql
+- config mysql
 > import  sql/thinone.sql  
   login account:  admin test123
 
 ```
 npm start
 ```
-production
+- production
 ```
 node production.js
 ```
+
+- cron
+[参考文档配置](https://thinkjs.org/zh-cn/doc/3.0/crontab.html)
+
 ## Access address
 - admin back end: http://127.0.0.1:8360/
 - mobile mui example : http://127.0.0.1:8360/static/mob/index.html
@@ -47,7 +51,7 @@ pm2 startOrReload pm2.json
 - [x] authority management
 - [x] mobile info flow content show
 - [x] rest api jwt
-- [ ] charts and cron events handlers 
+- [x] charts and cron events handlers 
 - [x] pc front end page
 - [ ] crud handler  modularization
 - [ ] try to add mongodb and redis cache
