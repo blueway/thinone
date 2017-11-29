@@ -31,7 +31,7 @@ CREATE TABLE `th_auth` (
   `order` int(2) NOT NULL DEFAULT '0',
   `ishow` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `th_auth` (
 
 LOCK TABLES `th_auth` WRITE;
 /*!40000 ALTER TABLE `th_auth` DISABLE KEYS */;
-INSERT INTO `th_auth` VALUES (1,0,'全部','/','',0,1),(3,4,'用户管理','/user/index','fa-text',0,1),(4,1,'系统管理','/index/sysmenu','fa-text',0,1),(5,4,'角色管理','/role/index','fa-text',1,1),(6,4,'权限菜单','/auth/index','fa-text',2,1),(7,6,'列表','/auth/list','fa-text',0,0),(8,6,'更新','/auth/update','fa-text',1,0),(11,6,'删除','/auth/del','fa-text',2,0),(12,5,'列表','/role/list','fa-text',0,0),(13,5,'更新','/role/update','fa-text',1,0),(14,5,'删除','/role/del','fa-text',2,0),(15,3,'列表','/user/list','fa-text',0,0),(16,3,'更新','/user/update','fa-text',1,0),(17,3,'删除','/user/del','fa-text',2,0),(18,5,'权限列表','/role/authList','fa-text',3,0),(19,5,'权限更新','/role/doAuth','fa-text',4,0);
+INSERT INTO `th_auth` VALUES (1,0,'全部','/','',0,1),(3,4,'用户管理','/user/index','fa-text',0,1),(4,1,'系统管理','/index/sysmenu?cate=sys','fa-text',0,1),(5,4,'角色管理','/role/index','fa-text',1,1),(6,4,'权限菜单','/auth/index','fa-text',2,1),(7,6,'列表','/auth/list','fa-text',0,0),(8,6,'更新','/auth/update','fa-text',1,0),(11,6,'删除','/auth/del','fa-text',2,0),(12,5,'列表','/role/list','fa-text',0,0),(13,5,'更新','/role/update','fa-text',1,0),(14,5,'删除','/role/del','fa-text',2,0),(15,3,'列表','/user/list','fa-text',0,0),(16,3,'更新','/user/update','fa-text',1,0),(17,3,'删除','/user/del','fa-text',2,0),(18,5,'权限列表','/role/authList','fa-text',3,0),(19,5,'权限更新','/role/doAuth','fa-text',4,0),(20,1,'内容管理','/index/sysmenu?cate=cms','fa-text',1,1),(21,20,'图表实例','/cms/index/index','fa-text',0,1),(22,20,'图表数据','/cms/index/chart','fa-text',1,0);
 /*!40000 ALTER TABLE `th_auth` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,7 @@ CREATE TABLE `th_role_auth` (
   `role_id` int(11) NOT NULL,
   `auth_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=260 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `th_role_auth` (
 
 LOCK TABLES `th_role_auth` WRITE;
 /*!40000 ALTER TABLE `th_role_auth` DISABLE KEYS */;
-INSERT INTO `th_role_auth` VALUES (167,2,1),(168,2,4),(169,2,3),(170,2,15),(171,2,16),(172,1,1),(173,1,4),(174,1,3),(175,1,15),(176,1,16),(177,1,17),(178,1,5),(179,1,12),(180,1,13),(181,1,14),(182,1,18),(183,1,19),(184,1,6),(185,1,7),(186,1,8),(187,1,11);
+INSERT INTO `th_role_auth` VALUES (234,1,1),(235,1,4),(236,1,3),(237,1,15),(238,1,16),(239,1,17),(240,1,5),(241,1,12),(242,1,13),(243,1,14),(244,1,18),(245,1,19),(246,1,6),(247,1,7),(248,1,8),(249,1,11),(250,1,20),(251,1,21),(252,1,22),(253,2,1),(254,2,4),(255,2,3),(256,2,15),(257,2,20),(258,2,21),(259,2,22);
 /*!40000 ALTER TABLE `th_role_auth` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,4 +180,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-27 14:24:27
+-- Dump completed on 2017-11-29 19:05:38

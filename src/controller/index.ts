@@ -4,25 +4,25 @@ function buildTree(inp:any[],cate:string):any[]{
    let map = {},roots = []
    let t = []
    if(inp.length == 0) return inp
-   let pid = 0
+   let pids = []
    for(let i in inp){
       let x= inp[i]
       if(x.url.endsWith('?cate='+cate)) {
-         pid = x.id
-         x.children = []
+         pids.push(x.id)
       }
       map[x.id] = i
       x['target'] = 'navtab'
       x['id'] = 't'+x.id
       t.push(x) 
    }
-   if(pid == 0)return []
+   if(pids.length == 0)return []
 
    for(let node of t){
-      if(node.pid == pid) {
+      if(pids.includes(node.pid)){
          let s = t[map[node.pid]]
+         if(!s.children)s.children = []
          s.children.push(node)
-      }else if(node.id == 't'+pid){
+      }else if(pids.some(x => 't'+x === node.id)){
          roots.push(node)
       }
    }
